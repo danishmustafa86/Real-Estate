@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux"; // ❗️You missed this import
 import { useNavigate, Link } from "react-router-dom";
 import { login } from "../../store/slices/auth.slice"; // Redux thunk
 // import { signInWithEmailAndPassword } from "firebase/auth"; ❌ not needed since you're using redux login thunk
+import "./Login.css";
 
 function Login() {
   const navigate = useNavigate(); // ❗️Fix: You forgot `const`
@@ -35,30 +36,32 @@ function Login() {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}> 
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-        <button type="submit">Login</button>
-      </form>
-      <p>
-        Don't have an account? <Link to="/signup">Sign Up</Link>
-      </p>
+    <div className="login-container">
+      <div className="login-form">
+        <h2>Login</h2>
+        <form onSubmit={handleSubmit}> 
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+          <button type="submit">Login</button>
+        </form>
+        <p>
+          Don't have an account? <Link to="/signup">Sign Up</Link>
+        </p>
+      </div>
     </div>
   );
 }

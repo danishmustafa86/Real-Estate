@@ -1,0 +1,280 @@
+/* Responsive Utilities and Global Styles */
+
+/* Hide/Show elements based on screen size */
+.hide-mobile {
+  display: block;
+}
+
+.show-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hide-mobile {
+    display: none;
+  }
+  
+  .show-mobile {
+    display: block;
+  }
+}
+
+/* Responsive text alignment */
+.text-center-mobile {
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .text-center-mobile {
+    text-align: center;
+  }
+}
+
+/* Responsive spacing utilities */
+.mt-mobile {
+  margin-top: 0;
+}
+
+.mb-mobile {
+  margin-bottom: 0;
+}
+
+.pt-mobile {
+  padding-top: 0;
+}
+
+.pb-mobile {
+  padding-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .mt-mobile {
+    margin-top: 20px;
+  }
+  
+  .mb-mobile {
+    margin-bottom: 20px;
+  }
+  
+  .pt-mobile {
+    padding-top: 20px;
+  }
+  
+  .pb-mobile {
+    padding-bottom: 20px;
+  }
+}
+
+/* Responsive image handling */
+.responsive-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsive button styles */
+.btn-responsive {
+  padding: clamp(10px, 2vw, 15px) clamp(20px, 4vw, 30px);
+  font-size: clamp(14px, 2.5vw, 16px);
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #545b62;
+  transform: translateY(-2px);
+}
+
+/* Responsive form styles */
+.form-responsive {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: clamp(15px, 3vw, 20px);
+}
+
+.form-control {
+  width: 100%;
+  padding: clamp(10px, 2vw, 12px);
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: clamp(14px, 2.5vw, 16px);
+  box-sizing: border-box;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+/* Responsive card styles */
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: clamp(15px, 3vw, 20px);
+  margin-bottom: clamp(15px, 3vw, 20px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive section styles */
+.section {
+  padding: clamp(40px, 8vw, 80px) 0;
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: clamp(20px, 4vw, 40px);
+  text-align: center;
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  margin-bottom: clamp(30px, 6vw, 50px);
+  text-align: center;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Responsive navigation improvements */
+.nav-responsive {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+/* Responsive footer improvements */
+.footer-responsive {
+  margin-top: auto;
+}
+
+/* Responsive loading states */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  font-size: clamp(14px, 2.5vw, 16px);
+  color: #666;
+}
+
+/* Responsive error states */
+.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: clamp(10px, 2vw, 15px);
+  border-radius: 6px;
+  margin: clamp(10px, 2vw, 15px) 0;
+  font-size: clamp(13px, 2.5vw, 14px);
+}
+
+.success {
+  background-color: #d4edda;
+  color: #155724;
+  padding: clamp(10px, 2vw, 15px);
+  border-radius: 6px;
+  margin: clamp(10px, 2vw, 15px) 0;
+  font-size: clamp(13px, 2.5vw, 14px);
+}
+
+/* Responsive animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Responsive scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-only {
+    display: block !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .card {
+    border: 2px solid #000;
+  }
+  
+  .btn-primary {
+    border: 2px solid #000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

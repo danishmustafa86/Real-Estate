@@ -5,78 +5,181 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
-  }
-  
-  /* Contact form container */
-  .contact-form {
+}
+
+/* Contact form container */
+.contact-form {
     width: 100%;
     max-width: 600px;
-    margin: 50px auto;
+    margin: clamp(30px, 6vw, 50px) auto;
     background-color: #fff;
-    padding: 30px;
+    padding: clamp(20px, 4vw, 30px);
     border-radius: 12px;
     box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  }
-  
-  /* Heading */
-  .contact-form h1 {
+}
+
+/* Heading */
+.contact-form h1 {
     text-align: center;
     color: #333;
-    margin-bottom: 30px;
-  }
-  
-  /* Input fields */
-  .contact-form input {
+    margin-bottom: clamp(20px, 4vw, 30px);
+    font-size: clamp(1.8rem, 4vw, 2.2rem);
+    line-height: 1.2;
+}
+
+/* Input fields */
+.contact-form input {
     width: 100%;
-    padding: 12px;
-    margin: 10px 0;
+    padding: clamp(10px, 2vw, 12px);
+    margin: clamp(8px, 1.5vw, 10px) 0;
     border: 1px solid #ccc;
     border-radius: 6px;
-    font-size: 16px;
-  }
-  
-  /* Submit button */
-  .contact-form button {
+    font-size: clamp(14px, 2.5vw, 16px);
+    box-sizing: border-box;
+}
+
+.contact-form input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Submit button */
+.contact-form button {
     width: 100%;
-    padding: 12px;
+    padding: clamp(10px, 2vw, 12px);
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 6px;
-    font-size: 16px;
+    font-size: clamp(14px, 2.5vw, 16px);
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  .contact-form button:hover {
+    margin-top: clamp(10px, 2vw, 15px);
+}
+
+.contact-form button:hover {
     background-color: #0056b3;
-  }
-  
-  /* Contact data section */
-  .contact-information {
+}
+
+/* Contact data section */
+.contact-information {
     list-style-type: none;
     padding-left: 0;
-    margin-top: 30px;
-  }
-  
-  .contact-information li {
+    margin-top: clamp(20px, 4vw, 30px);
+}
+
+.contact-information li {
     background-color: #f0f0f0;
-    margin: 10px 0;
-    padding: 15px;
+    margin: clamp(8px, 1.5vw, 10px) 0;
+    padding: clamp(12px, 2.5vw, 15px);
     border-radius: 8px;
-  }
-  
-  .contact-information p {
-    margin: 5px 0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-information li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.contact-information p {
+    margin: clamp(4px, 1vw, 5px) 0;
     color: #555;
-  }
-  
-  /* Footer styling if needed */
-  footer {
-    margin-top: 50px;
+    font-size: clamp(13px, 2.5vw, 14px);
+    line-height: 1.4;
+}
+
+/* Footer styling if needed */
+footer {
+    margin-top: clamp(30px, 6vw, 50px);
     text-align: center;
-    padding: 20px;
+    padding: clamp(15px, 3vw, 20px);
     background-color: #222;
     color: white;
-  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-form {
+        margin: clamp(20px, 4vw, 30px) clamp(10px, 2vw, 15px);
+        padding: clamp(15px, 3vw, 20px);
+    }
+    
+    .contact-form h1 {
+        font-size: clamp(1.5rem, 5vw, 1.8rem);
+        margin-bottom: clamp(15px, 3vw, 20px);
+    }
+    
+    .contact-form input {
+        padding: clamp(8px, 2vw, 10px);
+        margin: clamp(6px, 1.5vw, 8px) 0;
+        font-size: clamp(13px, 3vw, 15px);
+    }
+    
+    .contact-form button {
+        padding: clamp(8px, 2vw, 10px);
+        font-size: clamp(13px, 3vw, 15px);
+        margin-top: clamp(8px, 2vw, 12px);
+    }
+    
+    .contact-information {
+        margin-top: clamp(15px, 3vw, 20px);
+    }
+    
+    .contact-information li {
+        padding: clamp(10px, 2vw, 12px);
+        margin: clamp(6px, 1.5vw, 8px) 0;
+    }
+    
+    .contact-information p {
+        font-size: clamp(12px, 2.5vw, 13px);
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-form {
+        margin: 15px 10px;
+        padding: 15px;
+        border-radius: 8px;
+    }
+    
+    .contact-form h1 {
+        font-size: clamp(1.3rem, 6vw, 1.5rem);
+        margin-bottom: 15px;
+    }
+    
+    .contact-form input {
+        padding: 10px;
+        margin: 8px 0;
+        font-size: 14px;
+        border-radius: 4px;
+    }
+    
+    .contact-form button {
+        padding: 10px;
+        font-size: 14px;
+        margin-top: 10px;
+        border-radius: 4px;
+    }
+    
+    .contact-information {
+        margin-top: 15px;
+    }
+    
+    .contact-information li {
+        padding: 12px;
+        margin: 8px 0;
+        border-radius: 6px;
+    }
+    
+    .contact-information p {
+        font-size: 12px;
+        margin: 4px 0;
+    }
+    
+    footer {
+        margin-top: 20px;
+        padding: 15px;
+    }
+}
   

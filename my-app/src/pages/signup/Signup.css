@@ -1,5 +1,5 @@
-/* Login Form Styles */
-.login-container {
+/* Signup Form Styles */
+.signup-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,7 +9,7 @@
   color: white;
 }
 
-.login-form {
+.signup-form {
   background-color: #1e1e1e;
   padding: clamp(25px, 5vw, 40px);
   border-radius: 12px;
@@ -19,7 +19,7 @@
   border: 1px solid #333;
 }
 
-.login-form h2 {
+.signup-form h2 {
   text-align: center;
   margin-bottom: clamp(20px, 4vw, 30px);
   font-size: clamp(1.8rem, 4vw, 2.2rem);
@@ -27,7 +27,7 @@
   font-weight: 700;
 }
 
-.login-form input {
+.signup-form input {
   width: 100%;
   padding: clamp(12px, 2.5vw, 15px);
   margin-bottom: clamp(15px, 3vw, 20px);
@@ -40,17 +40,17 @@
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.login-form input::placeholder {
+.signup-form input::placeholder {
   color: #888;
 }
 
-.login-form input:focus {
+.signup-form input:focus {
   outline: none;
   border-color: #007bff;
   box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
 }
 
-.login-form button {
+.signup-form button {
   width: 100%;
   padding: clamp(12px, 2.5vw, 15px);
   background-color: #007bff;
@@ -64,98 +64,98 @@
   margin-bottom: clamp(15px, 3vw, 20px);
 }
 
-.login-form button:hover {
+.signup-form button:hover {
   background-color: #0056b3;
   transform: translateY(-2px);
 }
 
-.login-form button:active {
+.signup-form button:active {
   transform: translateY(0);
 }
 
-.login-form p {
+.signup-form p {
   text-align: center;
   font-size: clamp(13px, 2.5vw, 14px);
   color: #ccc;
   margin: 0;
 }
 
-.login-form a {
+.signup-form a {
   color: #007bff;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease;
 }
 
-.login-form a:hover {
+.signup-form a:hover {
   color: #0056b3;
   text-decoration: underline;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .login-container {
+  .signup-container {
     padding: clamp(15px, 3vw, 25px);
   }
   
-  .login-form {
+  .signup-form {
     padding: clamp(20px, 4vw, 30px);
     max-width: 350px;
   }
   
-  .login-form h2 {
+  .signup-form h2 {
     font-size: clamp(1.6rem, 5vw, 2rem);
     margin-bottom: clamp(15px, 3vw, 25px);
   }
   
-  .login-form input {
+  .signup-form input {
     padding: clamp(10px, 2vw, 12px);
     margin-bottom: clamp(12px, 2.5vw, 16px);
     font-size: clamp(13px, 3vw, 15px);
   }
   
-  .login-form button {
+  .signup-form button {
     padding: clamp(10px, 2vw, 12px);
     font-size: clamp(13px, 3vw, 15px);
     margin-bottom: clamp(12px, 2.5vw, 16px);
   }
   
-  .login-form p {
+  .signup-form p {
     font-size: clamp(12px, 2.5vw, 13px);
   }
 }
 
 @media (max-width: 480px) {
-  .login-container {
+  .signup-container {
     padding: 10px;
   }
   
-  .login-form {
+  .signup-form {
     padding: 20px;
     max-width: 100%;
     border-radius: 8px;
   }
   
-  .login-form h2 {
+  .signup-form h2 {
     font-size: clamp(1.4rem, 6vw, 1.8rem);
     margin-bottom: 20px;
   }
   
-  .login-form input {
+  .signup-form input {
     padding: 12px;
     margin-bottom: 15px;
     font-size: 14px;
     border-radius: 6px;
   }
   
-  .login-form button {
+  .signup-form button {
     padding: 12px;
     font-size: 14px;
     margin-bottom: 15px;
     border-radius: 6px;
   }
   
-  .login-form p {
+  .signup-form p {
     font-size: 12px;
   }
-}
+} 

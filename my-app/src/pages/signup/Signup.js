@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux"
 import { Link, useNavigate } from "react-router-dom";
 import { signup } from "../../store/slices/auth.slice";
+import "./Signup.css";
 
 function Signup() {
   const [formData, setFormData] = useState({ email: "", password: "", userName: "", confirmPassword: "" });
@@ -45,47 +46,49 @@ function Signup() {
   }
 
   return (
-    <div>
-      <h2>Signup</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="text"
-          name="userName"
-          placeholder="Username"
-          value={formData.userName}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="password"
-          name="confirmPassword"
-          placeholder="Confirm Password"
-          value={formData.confirmPassword}
-          onChange={handleChange}
-          required
-        />
-        <button type="submit">Signup</button>
-      </form>
+    <div className="signup-container">
+      <div className="signup-form">
+        <h2>Signup</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="text"
+            name="userName"
+            placeholder="Username"
+            value={formData.userName}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="password"
+            name="confirmPassword"
+            placeholder="Confirm Password"
+            value={formData.confirmPassword}
+            onChange={handleChange}
+            required
+          />
+          <button type="submit">Signup</button>
+        </form>
 
-      <p>
-        Already have an account? <Link to="/login">Login</Link>
-      </p>
+        <p>
+          Already have an account? <Link to="/login">Login</Link>
+        </p>
+      </div>
     </div>
   );
 };

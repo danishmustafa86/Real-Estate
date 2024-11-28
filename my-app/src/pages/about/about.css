@@ -1,46 +1,50 @@
 /* General Styles */
 .about-container {
-    padding: 20px;
+    padding: clamp(15px, 3vw, 20px);
     max-width: 1200px;
     margin: 0 auto;
     font-family: Arial, sans-serif;
+    width: 100%;
 }
 
 .about-hero {
     text-align: center;
-    padding: 50px 20px;
+    padding: clamp(30px, 6vw, 50px) clamp(15px, 3vw, 20px);
     background-color: #13333744;
     border-radius: 10px;
-    margin-bottom: 40px;
+    margin-bottom: clamp(25px, 5vw, 40px);
 }
 
 .about-hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    margin-bottom: clamp(8px, 2vw, 10px);
+    line-height: 1.2;
 }
 
 .about-hero p {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
     color: #d3cdcd;
+    line-height: 1.5;
 }
 
 .about-section {
-    margin-bottom: 40px;
+    margin-bottom: clamp(25px, 5vw, 40px);
 }
 
 .about-section h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    margin-bottom: clamp(15px, 3vw, 20px);
     text-align: center;
+    line-height: 1.3;
 }
 
 .about-section p {
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
     line-height: 1.6;
     color: #d9d2d2;
     text-align: center;
     max-width: 800px;
-    margin: 0 auto 20px;
+    margin: 0 auto clamp(15px, 3vw, 20px);
 }
 
 .about-image {
@@ -49,57 +53,181 @@
     height: auto;
     border-radius: 10px;
     display: block;
-    margin: 20px auto;
+    margin: clamp(15px, 3vw, 20px) auto;
 }
 
 .features-grid, .testimonials-grid, .team-grid {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: clamp(15px, 3vw, 20px);
     color: white;
-    gap: 20px;
+    margin: clamp(20px, 4vw, 30px) 0;
 }
 
 .feature, .testimonial, .team-member {
-    flex: 1 1 300px;
     text-align: center;
-    padding: 20px;
+    padding: clamp(15px, 3vw, 20px);
     background-color: #252527cb;
     counter-reset: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature:hover, .testimonial:hover, .team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .feature img, .testimonial img, .team-member img {
-    width: 100px;
-    height: 100px;
+    width: clamp(80px, 15vw, 100px);
+    height: clamp(80px, 15vw, 100px);
     border-radius: 50%;
-    margin-bottom: 15px;
+    margin-bottom: clamp(10px, 2vw, 15px);
+    object-fit: cover;
 }
 
 .testimonial p {
     font-style: italic;
     color: #cfc6c6;
+    font-size: clamp(0.85rem, 2vw, 0.95rem);
+    line-height: 1.5;
 }
 
 .about-cta {
     text-align: center;
-    padding: 40px 20px;
+    padding: clamp(25px, 5vw, 40px) clamp(15px, 3vw, 20px);
     background-color: #1a1b1a7e;
     border-radius: 10px;
-    margin-top: 40px;
+    margin-top: clamp(25px, 5vw, 40px);
 }
 
 .cta-button {
-    padding: 10px 20px;
-    font-size: 1.2rem;
+    padding: clamp(8px, 2vw, 10px) clamp(15px, 3vw, 20px);
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .cta-button:hover {
     background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .features-grid, .testimonials-grid, .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: clamp(12px, 2.5vw, 18px);
+    }
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        padding: clamp(10px, 2vw, 15px);
+    }
+    
+    .about-hero {
+        padding: clamp(20px, 4vw, 30px) clamp(10px, 2vw, 15px);
+        margin-bottom: clamp(20px, 4vw, 25px);
+    }
+    
+    .about-hero h1 {
+        font-size: clamp(1.8rem, 6vw, 2.2rem);
+    }
+    
+    .about-hero p {
+        font-size: clamp(0.9rem, 3vw, 1.1rem);
+    }
+    
+    .about-section h2 {
+        font-size: clamp(1.3rem, 5vw, 1.7rem);
+    }
+    
+    .about-section p {
+        font-size: clamp(0.85rem, 3vw, 1rem);
+    }
+    
+    .features-grid, .testimonials-grid, .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: clamp(12px, 2.5vw, 16px);
+    }
+    
+    .feature, .testimonial, .team-member {
+        padding: clamp(12px, 2.5vw, 16px);
+    }
+    
+    .feature img, .testimonial img, .team-member img {
+        width: clamp(70px, 12vw, 90px);
+        height: clamp(70px, 12vw, 90px);
+    }
+    
+    .about-cta {
+        padding: clamp(20px, 4vw, 30px) clamp(10px, 2vw, 15px);
+    }
+}
+
+@media (max-width: 480px) {
+    .about-container {
+        padding: 10px;
+    }
+    
+    .about-hero {
+        padding: 20px 10px;
+        margin-bottom: 20px;
+    }
+    
+    .about-hero h1 {
+        font-size: clamp(1.5rem, 7vw, 1.8rem);
+    }
+    
+    .about-hero p {
+        font-size: 0.9rem;
+    }
+    
+    .about-section {
+        margin-bottom: 20px;
+    }
+    
+    .about-section h2 {
+        font-size: clamp(1.2rem, 6vw, 1.4rem);
+        margin-bottom: 15px;
+    }
+    
+    .about-section p {
+        font-size: 0.85rem;
+        margin-bottom: 15px;
+    }
+    
+    .features-grid, .testimonials-grid, .team-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .feature, .testimonial, .team-member {
+        padding: 15px;
+    }
+    
+    .feature img, .testimonial img, .team-member img {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 10px;
+    }
+    
+    .testimonial p {
+        font-size: 0.8rem;
+    }
+    
+    .about-cta {
+        padding: 20px 10px;
+        margin-top: 20px;
+    }
+    
+    .cta-button {
+        padding: 10px 15px;
+        font-size: 1rem;
+    }
 }

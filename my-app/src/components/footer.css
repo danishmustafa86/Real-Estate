@@ -1,8 +1,10 @@
 .footer {
     background-color: #0F172A;
     color: #FFFFFF;
-    padding: 50px 80px;
+    padding: clamp(30px, 6vw, 50px) clamp(20px, 4vw, 80px);
     font-family: 'Arial', sans-serif;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .footertop {
@@ -10,38 +12,51 @@
     justify-content: space-between;
     align-items: flex-start;
     border-bottom: 1px solid #1E293B;
-    padding-bottom: 30px;
+    padding-bottom: clamp(20px, 4vw, 30px);
+    gap: clamp(20px, 4vw, 40px);
+    flex-wrap: wrap;
 }
 
 .footer-left {
     max-width: 300px;
+    flex: 1;
+    min-width: 250px;
 }
 
 .footer-left img {
-    width: 120px;
+    width: clamp(100px, 20vw, 120px);
     margin-bottom: 15px;
+    max-width: 100%;
+    height: auto;
 }
 
 .footer-left p {
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: clamp(12px, 2.5vw, 14px);
+    line-height: 1.6;
     color: #CBD5E1;
-    margin-bottom: 15px;
+    margin-bottom: clamp(15px, 3vw, 20px);
 }
 
 .social-icons {
     display: flex;
-    flex-direction: row; /* Change this to row */
-    gap: 15px; /* Space between icons */
+    flex-direction: row;
+    gap: clamp(10px, 2vw, 15px);
     padding: 0;
     list-style: none;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+.social-icons li {
+    margin: 0;
 }
 
 .social-icons li img {
-    width: 22px;
-    height: 22px;
+    width: clamp(18px, 4vw, 22px);
+    height: clamp(18px, 4vw, 22px);
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
+    display: block;
 }
 
 .social-icons li img:hover {
@@ -49,37 +64,41 @@
 }
 
 .footer-container {
-    display: flex;
-    gap: 120px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: clamp(30px, 6vw, 60px);
+    flex: 2;
+    max-width: 600px;
 }
 
-.footer-container div {
+.footer-card {
     display: flex;
     flex-direction: column;
 }
 
-.footer-container h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
+.footer-card h3 {
+    font-size: clamp(14px, 3vw, 16px);
+    margin-bottom: clamp(8px, 2vw, 12px);
     font-weight: bold;
+    color: #FFFFFF;
 }
 
-.footer-container ul {
+.footer-card ul {
     list-style: none;
-    padding: 1px;
-
+    padding: 0;
+    margin: 0;
 }
 
-.footer-container ul li {
-    font-size: 14px;
-    margin-bottom: 8px;
-
+.footer-card ul li {
+    font-size: clamp(12px, 2.5vw, 14px);
+    margin-bottom: clamp(6px, 1.5vw, 8px);
     color: #CBD5E1;
     cursor: pointer;
     transition: color 0.3s ease-in-out;
+    line-height: 1.4;
 }
 
-.footer-container ul li:hover {
+.footer-card ul li:hover {
     color: #38BDF8;
 }
 
@@ -87,37 +106,199 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 20px;
-    font-size: 12px;
+    margin-top: clamp(15px, 3vw, 20px);
+    font-size: clamp(10px, 2vw, 12px);
     color: #CBD5E1;
+    flex-wrap: wrap;
+    gap: clamp(8px, 2vw, 12px);
+    padding-top: clamp(15px, 3vw, 20px);
+    border-top: 1px solid #1E293B;
 }
 
 .footer-bottom .pleft,
 .footer-bottom .pright {
     margin: 0;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .footer {
+        padding: clamp(25px, 5vw, 40px) clamp(15px, 3vw, 40px);
+    }
+    
+    .footertop {
+        gap: clamp(15px, 3vw, 25px);
+    }
+    
+    .footer-container {
+        gap: clamp(25px, 5vw, 40px);
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
 }
 
 @media (max-width: 768px) {
+    .footer {
+        padding: clamp(20px, 4vw, 30px) clamp(10px, 2vw, 20px);
+    }
+    
     .footertop {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        gap: clamp(25px, 5vw, 35px);
     }
 
     .footer-left {
         max-width: 100%;
+        text-align: center;
+        order: 1;
+    }
+    
+    .footer-left p {
+        max-width: 500px;
+        margin: 0 auto clamp(15px, 3vw, 20px);
     }
 
     .footer-container {
         flex-direction: column;
         align-items: center;
         text-align: center;
-        gap: 30px;
+        gap: clamp(25px, 5vw, 35px);
+        width: 100%;
+        max-width: 100%;
+        order: 2;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    
+    .footer-card {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
     }
 
     .footer-bottom {
         flex-direction: column;
         text-align: center;
+        gap: clamp(8px, 2vw, 12px);
+        order: 3;
+    }
+    
+    .footer-bottom .pleft,
+    .footer-bottom .pright {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        padding: 15px 10px;
+    }
+    
+    .footertop {
+        gap: 20px;
+        padding-bottom: 20px;
+    }
+    
+    .footer-left img {
+        width: 90px;
+    }
+    
+    .footer-left p {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+    
+    .social-icons {
+        gap: 12px;
+        justify-content: center;
+    }
+    
+    .social-icons li img {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .footer-container {
+        gap: 20px;
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-card {
+        max-width: 100%;
+    }
+    
+    .footer-card h3 {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    
+    .footer-card ul li {
+        font-size: 12px;
+        margin-bottom: 6px;
+        line-height: 1.5;
+    }
+    
+    .footer-bottom {
+        margin-top: 15px;
+        font-size: 10px;
+        gap: 8px;
+        padding-top: 15px;
+    }
+    
+    .footer-bottom .pleft,
+    .footer-bottom .pright {
+        font-size: 10px;
+        line-height: 1.4;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+    .footer {
+        padding: 12px 8px;
+    }
+    
+    .footertop {
+        gap: 15px;
+        padding-bottom: 15px;
+    }
+    
+    .footer-left img {
+        width: 80px;
+    }
+    
+    .footer-left p {
+        font-size: 11px;
+    }
+    
+    .social-icons {
         gap: 10px;
+    }
+    
+    .social-icons li img {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .footer-container {
+        gap: 15px;
+    }
+    
+    .footer-card h3 {
+        font-size: 13px;
+        margin-bottom: 8px;
+    }
+    
+    .footer-card ul li {
+        font-size: 11px;
+        margin-bottom: 5px;
+    }
+    
+    .footer-bottom {
+        margin-top: 12px;
+        font-size: 9px;
+        gap: 6px;
+        padding-top: 12px;
     }
 }

@@ -1,40 +1,89 @@
 .featured-section {
-  padding: 40px 20px;
+  padding: clamp(40px, 8vw, 80px) clamp(20px, 5vw, 60px);
   background-color: black;
   /* Light background color */
-  margin: 80px 60px 80px 60px;
+  margin: 0;
+  width: 100%;
 }
 
 .featured-header h1 {
-  font-size: 2rem;
-  margin-bottom: 20px;
+  font-size: clamp(1.8rem, 4vw, 2rem);
+  margin-bottom: clamp(20px, 4vw, 40px);
   color: white;
   text-align: left;
-  font: 700 2rem/1.2 'Poppins', sans-serif;
-
+  font: 700 clamp(1.8rem, 4vw, 2rem)/1.2 'Poppins', sans-serif;
 }
 
 .featured-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: 0px;
-  padding-right: 0px;
-  gap: 70px;
-  /* Space between logos */
+  padding: 0;
+  gap: clamp(30px, 6vw, 70px);
   flex-wrap: wrap;
-  /* Allow wrapping for smaller screens */
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .featured-container img {
-  max-width: 150px;
-  /* Adjust the size of the logos */
+  max-width: clamp(100px, 20vw, 150px);
   height: auto;
   transition: transform 0.3s ease;
-  /* Smooth hover effect */
+  object-fit: contain;
 }
 
 .featured-container img:hover {
   transform: scale(1.1);
   /* Slightly enlarge on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .featured-section {
+    padding: clamp(30px, 6vw, 60px) clamp(15px, 4vw, 40px);
+  }
+  
+  .featured-container {
+    gap: clamp(25px, 5vw, 50px);
+  }
+}
+
+@media (max-width: 768px) {
+  .featured-section {
+    padding: clamp(25px, 5vw, 40px) clamp(10px, 3vw, 20px);
+  }
+  
+  .featured-header h1 {
+    text-align: center;
+    font-size: clamp(1.5rem, 5vw, 1.8rem);
+    margin-bottom: clamp(15px, 3vw, 25px);
+  }
+  
+  .featured-container {
+    gap: clamp(20px, 4vw, 35px);
+    justify-content: center;
+  }
+  
+  .featured-container img {
+    max-width: clamp(80px, 18vw, 120px);
+  }
+}
+
+@media (max-width: 480px) {
+  .featured-section {
+    padding: 20px 10px;
+  }
+  
+  .featured-header h1 {
+    font-size: clamp(1.3rem, 6vw, 1.6rem);
+    margin-bottom: 20px;
+  }
+  
+  .featured-container {
+    gap: 15px;
+  }
+  
+  .featured-container img {
+    max-width: clamp(60px, 15vw, 100px);
+  }
 }
