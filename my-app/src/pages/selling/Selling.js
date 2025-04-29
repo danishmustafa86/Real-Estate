@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
+import {useSelector, useDispatch} from 'react-redux'
+import { createObject, getObjects, updateObject, deleteObject } from '../../store/slices/sellingpost.slice';
+import Link from 'react-router-dom';
 import './selling.css'; // Import CSS for styling
-import Footer from '../../components/footer';
+import {Footer} from '../../components/footer';
+
 
 
 export default function SellingPage() {
+    const dispatch = useDispatch();
+    const [title, setTitle] = useState("");
+    const [topic, setTopic] = useState("");
+    const [likes, setLikes] = useState(0);
+    const [id, setId] = useState(null);
+    const [comments, setComments] = useState("");
+
+
     return (
         <>
             <div className="selling-page">

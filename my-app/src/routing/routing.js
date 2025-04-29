@@ -4,7 +4,6 @@ import About from "../pages/about/About";
 import Buying from "../pages/buying/Buying";
 import ContactUs from "../pages/contact/Contact";
 import Home from "../pages/home/Home";
-import Login from "../pages/login/Login";
 import Products from "../pages/products/Products";
 import Renting from "../pages/renting/Renting";
 import Selling from "../pages/selling/Selling";
@@ -24,7 +23,6 @@ function Routing(){
             <Route path="/products" element={<Products />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/posts" element={<Posts />} />
-            <Route path="/login" element={<Login />} />
             <Route path="/objects" element={<Objects />} />
         </Routes>
 

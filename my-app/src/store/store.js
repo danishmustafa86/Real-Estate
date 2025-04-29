@@ -3,6 +3,7 @@ import { counterSlice } from "./slices/counter.slice";
 import { postsSlice } from "./slices/posts.slice";
 import { userSlice } from "./slices/user.slice";
 import { objectSlice } from "./slices/object.slice";
+import { sellingPostSlice } from "./slices/sellingpost.slice";
 
 const store = configureStore({
     reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
         userSlice: userSlice.reducer,
         postsSlice: postsSlice.reducer,
         objectSlice: objectSlice.reducer,
+        sellingPostSlice: sellingPostSlice.reducer,
     }
 });
 
