@@ -1,0 +1,86 @@
+/* Ensure the parent container is positioned relative */
+.mainpage-containerhome {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: rgb(18, 18, 18);
+  height: 100vh;
+  /* Full viewport height */
+  padding: 50px;
+  box-sizing: border-box;
+  position: relative;
+  /* Makes it the reference point for absolute positioning */
+}
+
+/* Style for the text container */
+.text-containerhome {
+  flex: 1;
+  padding-top: 100px;
+  padding-right: 0px;
+  margin-right: 0px;
+  margin-left: 10px;
+  margin-bottom: 120px;
+  box-sizing: border-box;
+  z-index: 1;
+  /* Ensure it stays below the search-container */
+  max-width: 50%;
+  /* Ensure it doesn't exceed 40% width */
+}
+
+.text-containerhome h1 {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  width: 70%;
+  font: 700 2rem/1.2 'Poppins', sans-serif;
+
+}
+
+.text-containerhome p {
+  font-size: 1rem;
+  margin-bottom: 30px;
+  color: #666;
+}
+
+/* Style for the image container */
+.image-containerhome {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: 50px;
+  box-sizing: border-box;
+  z-index: 1;
+  /* Ensure it doesn't exceed 60% width */
+}
+
+.image-containerhome img {
+
+  height: 450px;
+  margin: 5px;
+}
+
+/* Style for the search container */
+.search-containerhome {
+  position: absolute;
+  /* Float over the mainpage-container */
+  top: 70%;
+  /* Adjust the vertical position */
+  left: 10%;
+  /* Adjust the horizontal position */
+  width: 50%;
+  /* Adjust the width of the search container */
+  padding: 10px;
+  margin-bottom: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* Add a shadow for better visibility */
+  border-radius: 10px;
+  /* Rounded corners */
+  z-index: 2;
+
+}
+
+
+
+

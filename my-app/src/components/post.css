@@ -1,0 +1,105 @@
+/* Container centering the post */
+.post-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  /* Main post card styling */
+  .post-content {
+    background: #ffffff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Hover effect for a subtle lift */
+  .post-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Title styling with refined typography */
+  .post-title {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.8rem;
+    margin: 20px;
+    color: #333333;
+    text-align: center;
+  }
+  
+  /* Responsive image styling */
+  .post-image {
+    width: 40%;
+    height: 10%;
+    display: block;
+    margin:  auto;
+    border-radius: 10px;
+  }
+  
+  /* Body text styling */
+  .post-body {
+    font-family: 'Arial', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 20px;
+    color: #555555;
+  }
+  
+  /* Comments container with a light background and separation */
+  .comments-container {
+    border-top: 1px solid #eeeeee;
+    padding: 20px;
+    background: #fafafa;
+  }
+  
+  /* Fetch button styling with transitions */
+  .fetch-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  .fetch-button:hover {
+    background: #0056b3;
+  }
+  
+  /* Individual comment styling */
+  .comment {
+    border: 1px solid #dddddd;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background: #ffffff;
+    transition: background 0.3s ease;
+  }
+  
+  .comment:hover {
+    background: #f0f0f0;
+  }
+  
+  /* Comment name styling */
+  .comment-name {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: #d32f2f; /* Bright red for emphasis */
+  }
+  
+  /* Comment body styling */
+  .comment-body {
+    font-size: 0.95rem;
+    color: #666666;
+  }
+  

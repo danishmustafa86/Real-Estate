@@ -1,0 +1,27 @@
+
+.mainrentingdiv{
+ text-align: center;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+.inputInfo input{
+    width: 100%;
+}
+
+.buttonis{
+    background: white;
+    width: 90px;
+    height: 30px;
+}
+.youdata table {
+    margin: 0 auto;
+    border: 12px;
+    border-color: blue;
+    border-collapse: collapse;
+}
+
+.yourData{
+    text-align: center
+}

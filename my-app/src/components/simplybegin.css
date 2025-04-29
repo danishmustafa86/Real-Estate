@@ -1,0 +1,24 @@
+.simplebegin-container {
+  display : flex;
+  justify-content : center;
+  align-items : center;
+  padding : 50px 50px 50px 80px;
+}
+
+.simpleheading-container h1 {
+  font: 700 3rem/1.2 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom : 20px;
+  text-align : left;
+  padding: 90px;
+}
+
+.simpletext-container p {
+  font-size : 1rem;
+  margin-bottom : 30px;
+  color : #666;
+  text-align : left;
+  width: 70%;
+}

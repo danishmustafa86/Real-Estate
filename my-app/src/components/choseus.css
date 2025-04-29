@@ -1,0 +1,146 @@
+/* General Styling */
+.why-choose-us {
+    text-align: center;
+    padding: 2rem;
+    background-color: rgb(8, 8, 8); /* Dark background color */
+}
+
+.why-choose-us h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: white; /* White text color */
+    font: 700 3rem/1.2 'Poppins', sans-serif;
+
+}
+
+/* Container for the items */
+.choseus {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+/* Styling for each item */
+.chosediv {
+    background-color: rgb(8, 8, 8); /* Dark background */
+    border-radius: 10px; /* Rounded corners */
+    padding: 2rem;
+    width: 200px; /* Fixed width for each item */
+    box-shadow: 0 4px 8px rgba(11, 11, 11, 0.1); /* Subtle shadow */
+    text-align: center;
+}
+
+/* Icon Styling */
+.chose-icon {
+    width: 120px; /* Adjust icon size */
+    height: 120px; /* Adjust icon size */
+    margin-bottom: 1rem;
+}
+
+/* Title Styling */
+.chosediv h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: white; /* White text color */
+    font: 700 1.25rem/1.2 'Poppins', sans-serif;
+
+    
+}
+
+/* Description Styling */
+.chosediv p {
+    font-size: 1rem;
+    color: white; /* White text color */
+    line-height: 1.5; /* Improve readability */
+}
+
+/* Testimonial Section Styling */
+.testimonial-section {
+    background-color: rgb(8, 8, 8); /* Dark background */
+    padding: 40px 90px; /* Adjust padding for top/bottom and left/right */
+    margin: 2rem auto; /* Center the section horizontally */
+    text-align: left; /* Align text to the left */
+    width: 40%; /* Adjust width to match the image */
+    max-width: 800px; /* Optional: Set a max-width for larger screens */
+    border-radius: 10px; /* Optional: Add rounded corners */
+    color: #FFFFFF; /* White text color */
+    font-family: 'Arial', sans-serif; /* Match font family */
+}
+
+.testimonial-section p {
+    font-size: 16px; /* Adjust font size for the testimonial text */
+    line-height: 1.6; /* Improve readability with line height */
+    margin-bottom: 20px; /* Space between text and author */
+}
+
+.testimonial-section .author {
+    font-size: 14px; /* Smaller font size for the author */
+    font-style: italic; /* Italicize the author's name */
+    color: #CBD5E1; /* Light gray color for the author */
+}
+
+.testimonial-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.testimonial-content img {
+    width: 50px; /* Adjust image size */
+    height: 50px; /* Adjust image size */
+    border-radius: 50%; /* Circular image */
+    margin-bottom: 1rem;
+}
+
+.testimonial-quote {
+    font-size: 1.25rem;
+    color: white; /* White text color */
+    line-height: 1.6; /* Improve readability */
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-author h4 {
+    font-size: 1.5rem;
+    color: white; /* White text color */
+    margin-bottom: 0.5rem;
+    font: 700 2rem/1.2 'Poppins', sans-serif;
+
+}
+
+.testimonial-author p {
+    font-size: 1rem;
+    color: white; /* White text color */
+    opacity: 0.8; /* Slightly transparent */
+}
+
+/* Container for the circle and icons */
+.icon-container {
+    position: relative;
+    width: 120px; /* Adjust based on the size of your circle */
+    height: 120px; /* Adjust based on the size of your circle */
+    margin: 0 auto 1rem; /* Center the container and add margin below */
+}
+
+/* Circle image */
+.circle-icon {
+    width: 100%; /* Make the circle fill the container */
+    height: 100%;
+}
+
+/* Icons positioned over the circle */
+.icon {
+    position: absolute;
+    width: 30px; /* Adjust icon size */
+    height: 30px; /* Adjust icon size */
+}
+
+/* Positioning each icon */
+.icon-1 {
+    top: 30%; /* Adjust position */
+    left: 50%; /* Adjust position */
+    width: 50px; /* Adjust icon size */
+    height: 50px; /* Adjust icon size */
+    transform: translateX(-50%);
+}
+

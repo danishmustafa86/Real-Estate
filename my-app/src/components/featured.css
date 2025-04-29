@@ -1,0 +1,40 @@
+.featured-section {
+  padding: 40px 20px;
+  background-color: black;
+  /* Light background color */
+  margin: 80px 60px 80px 60px;
+}
+
+.featured-header h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: white;
+  text-align: left;
+  font: 700 2rem/1.2 'Poppins', sans-serif;
+
+}
+
+.featured-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 0px;
+  padding-right: 0px;
+  gap: 70px;
+  /* Space between logos */
+  flex-wrap: wrap;
+  /* Allow wrapping for smaller screens */
+}
+
+.featured-container img {
+  max-width: 150px;
+  /* Adjust the size of the logos */
+  height: auto;
+  transition: transform 0.3s ease;
+  /* Smooth hover effect */
+}
+
+.featured-container img:hover {
+  transform: scale(1.1);
+  /* Slightly enlarge on hover */
+}

@@ -1,0 +1,68 @@
+{
+  "properties": [
+    {
+      "id": 1,
+      "purpose": "rent",
+      "location": "Toronto, Canada",
+      "type": "Residential Home",
+      "price": "$1500/month",
+      "image": "/h1.jpg"
+    },
+    {
+      "id": 2,
+      "purpose": "buy",
+      "location": "New York, USA",
+      "type": "Industrial Home",
+      "price": "$500,000",
+      "image": "/h2.jpg"
+    },
+    {
+      "id": 3,
+      "purpose": "rent",
+      "location": "Toronto, Canada",
+      "type": "Residential Home",
+      "price": "$1300/month",
+      "image": "/m1.png"
+    },
+    {
+      "id": 4,
+      "purpose": "rent",
+      "location": "Toronto, Canada",
+      "type": "Residential Home",
+      "price": "$1500/month",
+      "image": "/h3.jpg"
+    },
+    {
+      "id": 5,
+      "purpose": "buy",
+      "location": "New York, USA",
+      "type": "Industrial Home",
+      "price": "$500,000",
+      "image": "/m2.png"
+    },
+    {
+      "id": 6,
+      "purpose": "rent",
+      "location": "Toronto, Canada",
+      "type": "Residential Home",
+      "price": "$1300/month",
+      "image": "/m3.png"
+    },
+    {
+      "id": 5,
+      "purpose": "buy",
+      "location": "New York, USA",
+      "type": "Industrial Home",
+      "price": "$500,000",
+      "image": "/h4.jpg"
+    },
+    {
+      "id": 6,
+      "purpose": "rent",
+      "location": "Toronto, Canada",
+      "type": "Residential Home",
+      "price": "$1300/month",
+      "image": "/m4.png"
+    }
+  ]
+}

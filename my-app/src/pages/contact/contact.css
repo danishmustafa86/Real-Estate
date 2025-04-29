@@ -1,0 +1,82 @@
+/* contact.css */
+
+/* General page styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+  }
+  
+  /* Contact form container */
+  .contact-form {
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  }
+  
+  /* Heading */
+  .contact-form h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  /* Input fields */
+  .contact-form input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+  
+  /* Submit button */
+  .contact-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contact-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Contact data section */
+  .contact-information {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 30px;
+  }
+  
+  .contact-information li {
+    background-color: #f0f0f0;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+  }
+  
+  .contact-information p {
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  /* Footer styling if needed */
+  footer {
+    margin-top: 50px;
+    text-align: center;
+    padding: 20px;
+    background-color: #222;
+    color: white;
+  }
+  
