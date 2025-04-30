@@ -2,88 +2,87 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { db } from "../../config/firebase";
 import {
     collection,
-    addDoc, 
+    addDoc,
     getDocs,
     deleteDoc,
     doc,
     updateDoc
 } from "firebase/firestore";
 
+// CREATE POST
 export const createSellingPost = createAsyncThunk(
     "sellingPost/createSellingPost",
     async (postData, { rejectWithValue }) => {
-        console.log("Creating post with data:", postData);
         try {
             const docRef = await addDoc(collection(db, "posts"), postData);
             return { id: docRef.id, ...postData };
         } catch (e) {
-            console.error("Error adding document:", e);
             return rejectWithValue(e.message);
         }
     }
 );
 
+// GET POSTS
 export const getSellingPosts = createAsyncThunk(
     "sellingPost/getSellingPosts",
     async (_, { rejectWithValue }) => {
         try {
             const querySnapshot = await getDocs(collection(db, "posts"));
-            let posts = [];
-            querySnapshot.forEach((doc)=> {
-                posts.push({id:doc.id,...doc.data()});
-            })
+            const posts = querySnapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data()
+            }));
             return posts;
         } catch (e) {
-            console.error("Error fetching documents:", e);
             return rejectWithValue(e.message);
         }
     }
 );
 
+// DELETE POST
 export const deleteSellingPost = createAsyncThunk(
     "sellingPost/deleteSellingPost",
-    async (postId) => {
+    async (postId, { rejectWithValue }) => {
         try {
-        await deleteDoc(doc(db, "posts", postId));
-        return postId;
-        }
-        catch (e) {
-            console.error("Error deleting document:",e);
-            
+            await deleteDoc(doc(db, "posts", postId));
+            return postId;
+        } catch (e) {
+            return rejectWithValue(e.message);
         }
     }
-)
+);
 
+// UPDATE POST
 export const updateSellingPost = createAsyncThunk(
-    "selllingPost/updateSellingPost",
-    async({postId, updatedData}) => {
-        try{
-            const postRef = doc(db, "posts", postId);
+    "sellingPost/updateSellingPost",
+    async ({ sellingPostId, updatedData }, { rejectWithValue }) => {
+        try {
+            const postRef = doc(db, "posts", sellingPostId);
             await updateDoc(postRef, updatedData);
-            return {id:postId, ...updatedData};
+            return { id: sellingPostId, ...updatedData };
+        } catch (e) {
+            return rejectWithValue(e.message);
         }
-        catch(e){
-            console.error("Error updating document:", e);
-        }
-        return rejectWithValue(e.message);
     }
-)
+);
 
-export const  sellingPostSlice = createSlice({
-    name:"sellingPost",
-    initialState:{
-        posts:[],
-        loading:false,
-        error:null
+// REDUCER SLICE
+export const sellingPostSlice = createSlice({
+    name: "sellingPost",
+    initialState: {
+        sellingPosts: [],
+        loading: false,
+        error: null
     },
-    extraReducers:(builder) => {
+    extraReducers: (builder) => {
         builder
             .addCase(createSellingPost.pending, (state) => {
                 state.loading = true;
+                state.error = null;
             })
             .addCase(createSellingPost.fulfilled, (state, action) => {
                 state.loading = false;
-                state.posts.push(action.payload);
+                state.sellingPosts.push(action.payload);
             })
             .addCase(createSellingPost.rejected, (state, action) => {
                 state.loading = false;
@@ -91,10 +90,11 @@ export const  sellingPostSlice = createSlice({
             })
             .addCase(getSellingPosts.pending, (state) => {
                 state.loading = true;
+                state.error = null;
             })
             .addCase(getSellingPosts.fulfilled, (state, action) => {
                 state.loading = false;
-                state.posts = action.payload;
+                state.sellingPosts = action.payload;
             })
             .addCase(getSellingPosts.rejected, (state, action) => {
                 state.loading = false;
@@ -102,10 +102,13 @@ export const  sellingPostSlice = createSlice({
             })
             .addCase(deleteSellingPost.pending, (state) => {
                 state.loading = true;
+                state.error = null;
             })
             .addCase(deleteSellingPost.fulfilled, (state, action) => {
                 state.loading = false;
-                state.posts = state.posts.filter((post) => post.id !== action.payload);
+                state.sellingPosts = state.sellingPosts.filter(
+                    (post) => post.id !== action.payload
+                );
             })
             .addCase(deleteSellingPost.rejected, (state, action) => {
                 state.loading = false;
@@ -113,17 +116,22 @@ export const  sellingPostSlice = createSlice({
             })
             .addCase(updateSellingPost.pending, (state) => {
                 state.loading = true;
+                state.error = null;
             })
             .addCase(updateSellingPost.fulfilled, (state, action) => {
                 state.loading = false;
-                const index = state.posts.findIndex((post) => post.id === action.payload.id);
+                const index = state.sellingPosts.findIndex(
+                    (post) => post.id === action.payload.id
+                );
                 if (index !== -1) {
-                    state.posts[index] = action.payload;
+                    state.sellingPosts[index] = action.payload;
                 }
             })
             .addCase(updateSellingPost.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.payload;
-            })
+            });
     }
-})
+});
+
+export default sellingPostSlice.reducer;
