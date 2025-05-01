@@ -10,6 +10,7 @@ import SellingPage from "../pages/selling/Selling";
 import Posts from "../pages/posts/Posts";
 import Footer from "../components/footer";
 import Objects from "../pages/objects/Objects";
+import Createpost from "../pages/createpost/Createpost"; // Adjust path as needed
 
 function Routing(){
     return (
@@ -24,6 +25,7 @@ function Routing(){
                 <Route path="/contact" element={<ContactUs />} />
                 <Route path="/posts" element={<Posts />} />
                 <Route path="/objects" element={<Objects />} />
+                <Route path="/createpost" element={<Createpost />} />
             </Routes>
 
 

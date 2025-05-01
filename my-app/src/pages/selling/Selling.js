@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-    createSellingPost,
     deleteSellingPost,
     updateSellingPost,
     getSellingPosts
 } from '../../store/slices/sellingpost.slice';
 import './selling.css';
 import Footer from '../../components/footer';
+import { Link, useNavigate } from 'react-router-dom'; // ✅ fixed
+
 
 export default function SellingPage() {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-    // Form States
     const [title, setTitle] = useState("");
     const [propertyType, setPropertyType] = useState("");
     const [area, setArea] = useState("");
@@ -22,33 +23,27 @@ export default function SellingPage() {
     const [location, setLocation] = useState("");
     const [image, setImage] = useState(null);
 
-    // Redux State
     const sellingPosts = useSelector(state => state.sellingPostSlice.sellingPosts);
     const loading = useSelector(state => state.sellingPostSlice.loading);
     const error = useSelector(state => state.sellingPostSlice.error);
+
+
 
     useEffect(() => {
         dispatch(getSellingPosts());
     }, [dispatch]);
 
     const handleSubmit = () => {
-        if (id) {
-            dispatch(updateSellingPost({
-                sellingPostId: id,
-                updatedData: { title, propertyType, area, price, description, location, image }
-            }));
-        } else {
-            dispatch(createSellingPost({
-                title,
-                propertyType,
-                area,
-                price,
-                description,
-                location,
-                image
-            }));
+        if (!title || !propertyType || !area || !price || !description || !location) {
+            alert("Please fill all fields");
+            return;
         }
-        // Reset form
+
+        dispatch(updateSellingPost({
+            sellingPostId: id,
+            updatedData: { title, propertyType, area, price, description, location, image }
+        }));
+
         setTitle("");
         setPropertyType("");
         setArea("");
@@ -63,6 +58,9 @@ export default function SellingPage() {
         <>
             <div>
                 <h1>Enter your property detail</h1>
+                <Link to="/createpost" style={{ textDecoration: "none", color: "blue" }}>
+                    <h2>Create Post</h2>
+                </Link>
                 <div className="inputInfo2">
                     <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Enter Property Title" />
                     <input type="text" value={propertyType} onChange={(e) => setPropertyType(e.target.value)} placeholder="Enter Property Type" />
@@ -70,15 +68,14 @@ export default function SellingPage() {
                     <input type="text" value={price} onChange={(e) => setPrice(e.target.value)} placeholder="Enter Price" />
                     <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Enter Description" />
                     <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} placeholder="Enter Location" />
-                    <input type="file" onChange={(e) => setImage(e.target.files[0])} />
-                    <button onClick={handleSubmit}>
-                        {id ? "Update Property" : "Add Property"}
-                    </button>
+                    <input type="file" accept="image/*" onChange={(e) => setImage(e.target.files[0])} />
+                    <button onClick={handleSubmit}>Update Post</button>
                 </div>
 
                 <h1>Posts List</h1>
                 {loading && <p>Loading posts...</p>}
                 {error && <p style={{ color: 'red' }}>Error: {error}</p>}
+
                 <div>
                     {sellingPosts.map((post) => (
                         <div key={post.id} className="post-item">
@@ -105,13 +102,17 @@ export default function SellingPage() {
                                 setLocation(post.location);
                                 setId(post.id);
                                 setImage(post.image);
-                            }}>
-                                Edit
-                            </button>
+                            }}>Edit</button>
                         </div>
                     ))}
                 </div>
             </div>
+
+
+
+
+
+
 
             {/* Marketing and Info Section */}
             <div className="selling-page">
