@@ -54,11 +54,15 @@ export default function SellingPage() {
     return (
         <>
             <div className="page-container">
-                <h1>Enter your property detail</h1>
-                <Link to="/createpost" className="create-post-link">
-                    <h2>Create Post</h2>
-                </Link>
-                <h1>Posts List</h1>
+                <h1 style={{ display: "flex", justifyContent: "center", alignItems: "center", textAlign: "center" }}>
+                    Enter your property detail
+                </h1>
+                <div className="center-container">
+                    <Link to="/createpost" className="create-post-link">
+                        <button>Create Post</button>
+                    </Link>
+                </div>
+                <h1 style={{display: "flex", justifyContent:"center", alignItems:"center", textAlign:"center"}}>Posts List</h1>
                 {loading && <p className="loading">Loading posts...</p>}
                 {error && <p className="error">Error: {error}</p>}
 
@@ -66,39 +70,39 @@ export default function SellingPage() {
                     {sellingPosts.map((post) => (
                         <div className="post-wrapper">
 
-                        <div key={post.id} className="post-item">
-                            <h2>{post.title}</h2>
-                            <p>Property Type: {post.propertyType}</p>
-                            <p>Area: {post.area} sq ft</p>
-                            <p>Price: {post.price}</p>
-                            <p>Description: {post.description}</p>
-                            <p>Location: {post.location}</p>
-                            {post.image && (
-                                <img
-                                    src={typeof post.image === "string" ? post.image : URL.createObjectURL(post.image)}
-                                    alt={`Property: ${post.title}`}
-                                    className="post-image"
-                                />
-                            )}
-                            <div className="button-group">
-                                <button onClick={() => {
-                                    if (window.confirm("Are you sure you want to delete this post?")) {
-                                        dispatch(deleteSellingPost(post.id));
-                                    }
-                                }}>Delete</button>
+                            <div key={post.id} className="post-item">
+                                <h2>{post.title}</h2>
+                                <p>Property Type: {post.propertyType}</p>
+                                <p>Area: {post.area} sq ft</p>
+                                <p>Price: {post.price}</p>
+                                <p>Description: {post.description}</p>
+                                <p>Location: {post.location}</p>
+                                {post.image && (
+                                    <img
+                                        src={typeof post.image === "string" ? post.image : URL.createObjectURL(post.image)}
+                                        alt={`Property: ${post.title}`}
+                                        className="post-image"
+                                    />
+                                )}
+                                <div className="button-group">
+                                    <button onClick={() => {
+                                        if (window.confirm("Are you sure you want to delete this post?")) {
+                                            dispatch(deleteSellingPost(post.id));
+                                        }
+                                    }}>Delete</button>
 
-                                <button onClick={() => {
-                                    setTitle(post.title);
-                                    setPropertyType(post.propertyType);
-                                    setArea(post.area);
-                                    setPrice(post.price);
-                                    setDescription(post.description);
-                                    setLocation(post.location);
-                                    setId(post.id);
-                                    setImage(post.image);
-                                }}>Edit</button>
+                                    <button onClick={() => {
+                                        setTitle(post.title);
+                                        setPropertyType(post.propertyType);
+                                        setArea(post.area);
+                                        setPrice(post.price);
+                                        setDescription(post.description);
+                                        setLocation(post.location);
+                                        setId(post.id);
+                                        setImage(post.image);
+                                    }}>Edit</button>
+                                </div>
                             </div>
-                        </div>
                         </div>
                     ))}
                 </div>
@@ -117,7 +121,7 @@ export default function SellingPage() {
                         <input type="file" accept="image/*" onChange={(e) => setImage(e.target.files[0])} />
                         {image && (
                             <img
-                            
+
                                 src={typeof image === "string" ? image : URL.createObjectURL(image)}
                                 alt="Preview"
                                 className="preview-image"

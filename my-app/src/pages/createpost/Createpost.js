@@ -69,7 +69,7 @@ export default function Createpost() {
     return (
         <div className="create-post-container">
             <Link to="/Selling" onClick={goBack}>
-                <h2>Go Back to Selling Page</h2>
+                <button>Go Back</button>
             </Link>
             <h1>Create Posts</h1>
             <input type="text" placeholder="Title" value={title || ""} onChange={(e) => setTitle(e.target.value)} />
