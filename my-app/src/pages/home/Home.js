@@ -7,12 +7,17 @@ import Chose from '../../components/choseus';
 import HelpPeople from '../../components/helppeople';
 import SimpleBegin from '../../components/simplybegin';
 import Footer from '../../components/footer';
-
+import { signOut } from 'firebase/auth';
+import { auth } from '../../config/firebase';
 
 const Home = () => {
+  const handleLogout = () => {
+    signOut(auth);
+  };
 
   return (
     <div className="home">
+      <button onClick={handleLogout}>Logout</button>
       <MyMainPage />
       <Featured />
       <Residence />
