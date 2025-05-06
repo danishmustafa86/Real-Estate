@@ -11,7 +11,8 @@
 }
 
 .buttonis{
-    background: white;
+    background: rgb(160, 8, 8);
+    color:white;
     width: 90px;
     height: 30px;
 }
@@ -23,5 +24,5 @@
 }
 
 .yourData{
-    text-align: center
+    text-align: center;
 }
