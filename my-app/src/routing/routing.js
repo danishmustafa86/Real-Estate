@@ -11,7 +11,7 @@ import Products from "../pages/products/Products";
 import Renting from "../pages/renting/Renting";
 import SellingPage from "../pages/selling/Selling";
 import Posts from "../pages/posts/Posts";
-import Footer from "../components/footer";
+// import Footer from "../components/footer";
 import Objects from "../pages/objects/Objects";
 import Createpost from "../pages/createpost/Createpost";
 import SignUp from "../pages/signup/Signup";
@@ -48,7 +48,7 @@ function Routing() {
           <Route path="*" element={<Navigate to="/login" />} />
         )}
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
