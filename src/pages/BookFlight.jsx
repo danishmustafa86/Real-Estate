@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { TextInput, Button, Container, Title, Stack, Select } from '@mantine/core';
+import { TextInput, Button, Container, Title, Stack, Alert } from '@mantine/core';
 import axios from 'axios';
 
 function BookFlight() {
@@ -10,20 +10,33 @@ function BookFlight() {
     destination: '',
     date: '',
   });
+  const [response, setResponse] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:8000/book-flight', formData);
-      alert('Flight booked successfully!');
+      setResponse(response.data.assistant_response);
+      setError('');
+      setFormData({
+        name: '',
+        email: '',
+        departure: '',
+        destination: '',
+        date: '',
+      });
     } catch (error) {
-      alert('Error booking flight');
+      setError('Error booking flight. Please try again.');
+      setResponse('');
     }
   };
 
   return (
     <Container size="sm">
       <Title order={2} mb="xl">Book Your Flight</Title>
+      {error && <Alert color="red" mb="md">{error}</Alert>}
+      {response && <Alert color="green" mb="md">{response}</Alert>}
       <form onSubmit={handleSubmit}>
         <Stack>
           <TextInput

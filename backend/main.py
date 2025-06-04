@@ -2,9 +2,13 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from motor.motor_asyncio import AsyncIOMotorClient
-from openai import OpenAI
+import google.generativeai as genai
 from typing import Optional
 import os
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 app = FastAPI()
 
@@ -18,13 +22,14 @@ app.add_middleware(
 )
 
 # MongoDB connection
-MONGODB_URL = "mongodb://localhost:27017"
+MONGODB_URL = os.getenv("Mongo_DB_Connection_String")
 client = AsyncIOMotorClient(MONGODB_URL)
 db = client.travel_assistant
 bookings_collection = db.bookings
 
-# OpenAI client
-openai_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+# Configure Gemini API
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+model = genai.GenerativeModel('gemini-pro')
 
 class BookingRequest(BaseModel):
     name: str
@@ -43,18 +48,17 @@ async def book_flight(booking: BookingRequest):
         booking_dict = booking.dict()
         await bookings_collection.insert_one(booking_dict)
         
-        # Generate assistant response using OpenAI
+        # Generate assistant response using Gemini
         assistant_message = f"Booking confirmed for {booking.name}. Flight from {booking.departure} to {booking.destination} on {booking.date}."
         
-        completion = openai_client.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {"role": "system", "content": "You are a helpful travel assistant."},
-                {"role": "user", "content": f"Process this flight booking: {assistant_message}"}
-            ]
+        response = model.generate_content(
+            f"Act as a travel assistant and process this flight booking: {assistant_message}"
         )
         
-        return {"message": "Booking successful", "assistant_response": completion.choices[0].message.content}
+        return {
+            "message": "Booking successful", 
+            "assistant_response": response.text
+        }
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
