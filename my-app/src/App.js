@@ -1,23 +1,37 @@
-// src/App.js
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
-import Navbar from './components/navbar';
+import React, { useEffect } from 'react';
+import { BrowserRouter } from 'react-router-dom'; // ✅ Add this
 import Routing from './routing/routing';
-import { Provider } from 'react-redux';
-import store from './store/store'; // Import your Redux store
-
+import Navbar from './components/navbar';
+import './App.css';
+import { fetchCurrentUser } from './store/slices/auth.slice';
+import { useSelector, useDispatch } from 'react-redux';
 
 function App() {
+  const dispatch = useDispatch();
+  const isLoading = useSelector((state) => state.auth.isLoading);
+
+  useEffect(() => {
+    const unsubscribe = dispatch(fetchCurrentUser());
+    return () => {
+      if (typeof unsubscribe === 'function') {
+        unsubscribe();
+      }
+    };
+  }, [dispatch]);
+
   return (
-    // <Provider store={store}>
-    <Provider store={store}>
-      <Router>
-        <div>
+    <BrowserRouter> {/* ✅ Wrap everything inside */}
+      {isLoading ? (
+        <div className="loading-screen">
+          <h1>Loading...</h1>
+        </div>
+      ) : (
+        <div className="app-container">
           <Navbar />
           <Routing />
         </div>
-      </Router>
-    </Provider>
+      )}
+    </BrowserRouter>
   );
 }
 
