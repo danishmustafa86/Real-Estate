@@ -47,7 +47,8 @@ export const fetchCurrentUser = ()=> (dispatch)=>{
             const docSnap = await getDoc(doc(db, "users", user.uid));
             if (!docSnap.exists()) {
                 console.log("No such document!");
-                dispatch(logout());
+                dispatch(setLoading(false));
+                // dispatch(logout());
                 return;
             }
             dispatch(setUser({
